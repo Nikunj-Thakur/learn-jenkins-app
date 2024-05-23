@@ -8,11 +8,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                cleanWs()
                 sh '''
                 ls -la
                 node --version
                 npm --version
                 npm ci
+                ls -la
                 npm run build
                 ls -la
                 '''
@@ -23,6 +25,7 @@ pipeline {
                 sh '''
                 test -f build/index.html
                 npm test
+                ls -la
                 '''
             }
         }
