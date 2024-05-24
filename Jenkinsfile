@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                cleanWs()
                 sh '''
                 ls -la
                 node --version
